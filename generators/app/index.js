@@ -43,9 +43,10 @@ module.exports = Generator.extend({
   },
 
   writing: function () {
-    ['index.html',
+    ['public/index.html',
      'package.json',
-     'webpack.config.js'].forEach(function (file) {
+     'webpack.config.js',
+     '.bowerrc', 'bower.json'].forEach(function (file) {
       this.fs.copyTpl(
         this.templatePath(file),
         this.destinationPath(file),

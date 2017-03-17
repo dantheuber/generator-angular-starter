@@ -1,0 +1,7 @@
+{
+  "name": "<%= name %>",
+  "description": "An angular app",
+  "dependencies": {
+    "angular": "^1.6.3"
+  }
+}
