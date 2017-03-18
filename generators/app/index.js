@@ -2,31 +2,67 @@
 var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var _ = require('lodash');
 
 module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the spectacular ' + chalk.red('generator-angular-starter') + ' generator!'
+      'Welcome to the spectacular ' + chalk.red('angular-starter') + ' generator!'
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to enable this option?',
-      default: true
+      type: 'input',
+      name: 'name',
+      message: 'What would you like to name this project?',
+      default: this.appname
+    }, {
+      type: 'input',
+      name: 'author',
+      message: 'Authors name?',
+      default: ''
+    }, {
+      type: 'input',
+      name: 'githubUsername',
+      message: 'Github username?',
+      default: 'user'
     }];
 
     return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
+      var repoPrompts = [{
+        type: 'input',
+        name: 'gitRepo',
+        message: 'Github repo url?',
+        default: 'https://github.com/' + props.githubUsername + '/' + props.name + '.git'
+      }];
+
+      return this.prompt(repoPrompts).then(function (gitProps) {
+        this.props = _.extend(props, gitProps);
+      }.bind(this));
     }.bind(this));
   },
 
   writing: function () {
-    this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+    ['public/index.html',
+     'package.json',
+     'webpack.config.js',
+     '.bowerrc', 'bower.json'].forEach(function (file) {
+      this.fs.copyTpl(
+        this.templatePath(file),
+        this.destinationPath(file),
+        {
+          name: this.props.name,
+          author: this.props.author,
+          repo: this.props.gitRepo
+        }
+      );
+    }.bind(this));
+
+
+    this.fs.copyTpl(
+      this.templatePath('**/*.js'),
+      this.destinationRoot(),
+      { name: this.props.name }
     );
   },
 
