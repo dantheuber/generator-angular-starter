@@ -1,6 +1,6 @@
 'use strict';
 
-var getModules = require('../../util/getModules');
+var getModules = require('../util/getModules');
 
 var Generator = require('yeoman-generator');
 var chalk = require('chalk');
@@ -69,7 +69,7 @@ module.exports = Generator.extend({
     var type = this.props.type;
     var name = this.props.name;
     var template = (type === 'directive' ? 'directive':'factory') + '.js';
-    
+
     this.fs.copyTpl(
       this.templatePath(template),
       this.destinationPath(dest),

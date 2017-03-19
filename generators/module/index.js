@@ -1,12 +1,12 @@
 'use strict';
 
-var getModules = require('../../util/getModules');
 
 var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var path = require('path');
 var _ = require('lodash');
 var fs = require('fs');
+var getModules = require('../util/getModules');
 
 module.exports = Generator.extend({
   prompting: function () {

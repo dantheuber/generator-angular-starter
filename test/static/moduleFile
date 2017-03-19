@@ -1,0 +1,8 @@
+'use strict';
+
+module.exports = 'another';
+
+require('angular').module('another', [])
+  .service('AnotherService', require('./another.service'))
+  .controller('NewFactory', require('./newfactory.controller'))
+  .service('test', require('./test.service'));
