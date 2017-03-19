@@ -4,5 +4,5 @@ module.exports = <%= moduleNameUp %><%= typeUpper %>;
 <%= moduleNameUp %><%= typeUpper %>.$inject = [];
 
 function <%= moduleNameUp %><%= typeUpper %>() {
-  
+  var <%= typeSuffix %> = this;
 }

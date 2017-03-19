@@ -48,7 +48,8 @@ module.exports = Generator.extend({
       moduleName: newModule,
       moduleNameUp: newModule.charAt(0).toUpperCase() + newModule.slice(1),
       typeLower: initType,
-      typeUpper: initType.charAt(0).toUpperCase() + initType.slice(1)
+      typeUpper: initType.charAt(0).toUpperCase() + initType.slice(1),
+      typeSuffix: initType === 'service' ? 'svc' : 'vm'
     };
     var moduleDir = 'src/' + newModule;
     var moduleFilePath = moduleDir + '/' + newModule + '.module.js';
