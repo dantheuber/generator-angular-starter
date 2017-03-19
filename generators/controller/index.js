@@ -4,7 +4,6 @@ var getModules = require('../../util/getModules');
 
 var Generator = require('yeoman-generator');
 var chalk = require('chalk');
-var yosay = require('yosay');
 var path = require('path');
 var _ = require('lodash');
 var fs = require('fs');
@@ -48,9 +47,9 @@ module.exports = Generator.extend({
     // update the module file to include this new controller
     var moduleFilePath = path.join(this.contextRoot, 'src/' + moduleName + '/' + moduleName + '.module.js');
     var fileContent = fs.readFileSync(moduleFilePath, 'utf-8');
-    var newControllerLine = '\r\n  .controller(' + controllerName + ', require(\'./'+ controllerFileName.replace('.js', '') + '\'));'
+    var newControllerLine = '\r\n  .controller(\'' + controllerName + '\', require(\'./'+ controllerFileName.replace('.js', '') + '\'));'
     var lastThingRegExp = /\.[A-Za-z]+\(\'[A-Za-z]+\'\, require\(\'\.\/[A-Za-z]+\.[A-Za-z]+\'\)\)(;)/gm;
-    var tempMatch = lastThingRegExp.exec(fileContent)[0].split('');
+    var tempMatch = fileContent.match(lastThingRegExp)[0].split('');
     var lastThing = tempMatch.slice(0,tempMatch.length - 1).join('');
     var newModuleFilecontent = fileContent.replace(lastThingRegExp, lastThing + newControllerLine);
     // override content
