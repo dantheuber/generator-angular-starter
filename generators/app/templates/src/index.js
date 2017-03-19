@@ -2,5 +2,6 @@
 
 require('angular');
 
-angular.module('<%= name %>', [])
-  .controller('RootController', require('./root/root.controller'));
+angular.module('<%= name %>', [
+  require('./root/root.module');
+]);
