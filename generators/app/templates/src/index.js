@@ -3,5 +3,5 @@
 require('angular');
 
 angular.module('<%= name %>', [
-  require('./root/root.module');
+  require('./root/root.module')
 ]);
