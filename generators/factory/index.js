@@ -68,24 +68,13 @@ module.exports = Generator.extend({
     var dest = this.props.newFilePath;
     var type = this.props.type;
     var name = this.props.name;
-
-    switch(type) {
-      case 'service':
-      case 'controller':
-        this.fs.copyTpl(
-          this.templatePath('factory.js'),
-          this.destinationPath(dest),
-          this.props
-        );
-        break;
-      case 'directive':
-        this.fs.copyTpl(
-          this.templatePath('directive.js'),
-          this.destinationPath(dest),
-          this.props
-        )
-        break;
-    }
+    var template = (type === 'directive' ? 'directive':'factory') + '.js';
+    
+    this.fs.copyTpl(
+      this.templatePath(template),
+      this.destinationPath(dest),
+      this.props
+    );
 
     // update the module file to include this new controller
     var moduleFilePath = path.join(this.contextRoot, 'src/' + moduleName + '/' + moduleName + '.module.js');
