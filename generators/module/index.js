@@ -58,11 +58,22 @@ module.exports = Generator.extend({
       this.destinationPath(moduleFilePath),
       templateVars
     );
-    var factDest = 'src/' + newModule + '.' + initType + '.js';
+    var factDest = moduleDir + '/' + newModule + '.' + initType + '.js';
     this.fs.copyTpl(
       this.templatePath('factory.js'),
       this.destinationPath(factDest),
       templateVars
     );
+
+    // update the root index to include the new module
+    var indexPath = path.join(this.contextRoot, 'src/index.js');
+    var fileContent = fs.readFileSync(indexPath, 'utf-8');
+    var newModuleLine = ',\r\n  require(\'./' + moduleFilePath.replace('src/', '').replace('.js', '') + '\')';
+    var lastModuleRegExp = /require\(\'\.\/[A-Za-z\d]+\/[A-Za-z\d]+\.module\'\)$/gm;
+    var tempMatch = fileContent.match(lastModuleRegExp)[0];
+    var newFileContent = fileContent.replace(lastModuleRegExp, tempMatch + newModuleLine);
+    fs.truncateSync(indexPath, 0);
+    fs.writeFileSync(indexPath, newFileContent, { encoding: 'utf-8' });
+    this.log(chalk.green('Your new module has been created!'));
   }
 });
