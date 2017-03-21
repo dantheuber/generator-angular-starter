@@ -4,23 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "gulp test",
     "bundle": "webpack"
   },
   "author": "<%= author %>",
   "repository": "<%= repo %>",
   "license": "ISC",
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
   "dependencies": {
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "angular": "^1.6.3",
-    "gulp": "^3.9.1",
-    "gulp-angular-templatecache": "^2.0.0",
-    "gulp-connect": "^5.0.0",
-    "gulp-exec": "^2.1.3",
-    "gulp-spawn": "^0.3.0",
-    "gulp-util": "^3.0.8",
-    "webpack": "^2.2.1"
-  }
+  "angular": "^1.6.3",
+  "gulp": "^3.9.1",
+  "gulp-angular-templatecache": "^2.0.0",
+  "gulp-connect": "^5.0.0",
+  "gulp-eslint": "^3.0.1",
+  "gulp-exclude-gitignore": "^1.1.1",
+  "gulp-exec": "^2.1.3",
+  "gulp-istanbul": "^1.1.1",
+  "gulp-mocha": "^4.1.0",
+  "gulp-nsp": "^2.4.2",
+  "gulp-plumber": "^1.1.0",
+  "gulp-util": "^3.0.8",
+  "webpack": "^2.2.1"
+}
 }
