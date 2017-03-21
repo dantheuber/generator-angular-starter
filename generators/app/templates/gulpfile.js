@@ -41,7 +41,7 @@ gulp.task('pack-min', function () {
 
 gulp.task('watch-files', function () {
   gulp.watch(['src/**/*.html'], ['templates']);
-  gulp.watch(['src/**/*.js'], ['pack']); // this will see templates.js change from that task
+  gulp.watch(['src/**/*.js'], ['pack', 'templates']);
   util.log('Watching files for changes...');
 });
 
