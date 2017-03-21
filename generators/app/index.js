@@ -54,5 +54,9 @@ module.exports = Generator.extend({
 
   install: function () {
     this.installDependencies();
+  },
+
+  end: function () {
+    this.spawnCommand('gulp', ['watch']);
   }
 });
