@@ -16,6 +16,18 @@ Then generate your new project:
 yo dangular
 ```
 
+Generate sub-modules controllers/directives/services
+
+```bash
+yo dangular:module
+## creates a new sub-module
+```
+
+```bash
+yo dangular:factory
+## creates controller/service/directive for selected module
+```
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
