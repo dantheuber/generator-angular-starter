@@ -8,7 +8,7 @@ module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the spectacular ' + chalk.red('angular-starter') + ' generator!'
+      'Welcome to the spectacular ' + chalk.red('dangular') + ' generator!'
     ));
 
     var prompts = [{

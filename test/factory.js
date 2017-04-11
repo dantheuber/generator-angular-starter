@@ -5,7 +5,7 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 var mkdirp = require('mkdirp').sync;
 var fs = require('fs');
-describe('generator-angular-starter:factory', function () {
+describe('generator-dangular:factory', function () {
   before(function () {
     var runContext = helpers.run(path.join(__dirname, '../generators/factory'));
     return runContext
