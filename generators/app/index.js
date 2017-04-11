@@ -8,7 +8,7 @@ module.exports = Generator.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the spectacular ' + chalk.red('angular-starter') + ' generator!'
+      'Welcome to the spectacular ' + chalk.red('dangular') + ' generator!'
     ));
 
     var prompts = [{
@@ -31,7 +31,7 @@ module.exports = Generator.extend({
     return this.prompt(prompts).then(function (props) {
       var repoPrompts = [{
         type: 'input',
-        name: 'gitRepo',
+        name: 'repo',
         message: 'Github repo url?',
         default: 'https://github.com/' + props.githubUsername + '/' + props.name + '.git'
       }];
@@ -43,30 +43,20 @@ module.exports = Generator.extend({
   },
 
   writing: function () {
-    ['public/index.html',
-     'package.json',
-     'webpack.config.js',
-     '.bowerrc', 'bower.json'].forEach(function (file) {
-      this.fs.copyTpl(
-        this.templatePath(file),
-        this.destinationPath(file),
-        {
-          name: this.props.name,
-          author: this.props.author,
-          repo: this.props.gitRepo
-        }
-      );
-    }.bind(this));
-
-
     this.fs.copyTpl(
-      this.templatePath('**/*.js'),
+      this.templatePath('**/*'),
       this.destinationRoot(),
-      { name: this.props.name }
+      this.props,
+      { },
+      { globOptions: { dot: true } }
     );
   },
 
   install: function () {
     this.installDependencies();
+  },
+
+  end: function () {
+    this.spawnCommand('gulp', ['watch']);
   }
 });

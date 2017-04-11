@@ -3,13 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title><%= name %></title>
-    <script src="lib/angular/angular.min.js" charset="utf-8"></script>
-    <script src="app.bundle.js" charset="utf-8"></script>
     <script src="vendor.bundle.js" charset="utf-8"></script>
+    <script src="app.bundle.js" charset="utf-8"></script>
   </head>
   <body ng-app="<%= name %>" strict-di>
-    <div class="" ng-controller="RootController as root">
-      <h1>{{ ::root.welcomeMessage }}</h1>
-    </div>
+    <root></root>
   </body>
 </html>

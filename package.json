@@ -1,5 +1,5 @@
 {
-  "name": "generator-angular-starter",
+  "name": "generator-dangular",
   "version": "0.1.0",
   "description": "build angular apps with my preferred structure",
   "homepage": "",
@@ -24,18 +24,20 @@
     "yosay": "^1.2.1"
   },
   "devDependencies": {
-    "yeoman-test": "^1.6.0",
-    "yeoman-assert": "^2.2.1",
     "eslint": "^3.1.1",
     "eslint-config-xo-space": "^0.15.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^3.0.1",
     "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-line-ending-corrector": "^1.0.1",
     "gulp-istanbul": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
     "gulp-mocha": "^3.0.1",
+    "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
-    "gulp-nsp": "^2.1.0"
+    "mkdirp": "^0.5.1",
+    "proxyquire": "^1.7.11",
+    "yeoman-assert": "^2.2.1",
+    "yeoman-test": "^1.6.0"
   },
   "eslintConfig": {
     "extends": "xo-space",
@@ -43,7 +45,7 @@
       "mocha": true
     }
   },
-  "repository": "git@github.com:dantheuber/generator-angular-starter.git",
+  "repository": "git@github.com:dantheuber/generator-dangular.git",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"

@@ -1,0 +1,7 @@
+instrumentation:
+    root: generators/
+    extensions:
+      - .js
+    default-excludes: true
+    excludes:
+      - **/templates/*.js

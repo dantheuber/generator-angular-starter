@@ -1,19 +1,19 @@
-# generator-angular-starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-dangular [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > build angular apps with my preferred structure
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-angular-starter using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-dangular using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-angular-starter
+npm install -g generator-dangular
 ```
 
 Then generate your new project:
 
 ```bash
-yo angular-starter
+yo dangular
 ```
 
 ## Getting To Know Yeoman
@@ -28,9 +28,9 @@ yo angular-starter
 MIT © [Daniel Essig]()
 
 
-[npm-image]: https://badge.fury.io/js/generator-angular-starter.svg
-[npm-url]: https://npmjs.org/package/generator-angular-starter
-[travis-image]: https://travis-ci.org/dantheuber/generator-angular-starter.svg?branch=master
-[travis-url]: https://travis-ci.org/dantheuber/generator-angular-starter
-[daviddm-image]: https://david-dm.org/dantheuber/generator-angular-starter.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/dantheuber/generator-angular-starter
+[npm-image]: https://badge.fury.io/js/generator-dangular.svg
+[npm-url]: https://npmjs.org/package/generator-dangular
+[travis-image]: https://travis-ci.org/dantheuber/generator-dangular.svg?branch=master
+[travis-url]: https://travis-ci.org/dantheuber/generator-dangular
+[daviddm-image]: https://david-dm.org/dantheuber/generator-dangular.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/dantheuber/generator-dangular
